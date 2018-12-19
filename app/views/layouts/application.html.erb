@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render "shared/head" %>
+  <%= render "shared/google_analytics" if Rails.env.production? %>
+</head>
+
+<body class="<%= body_class(yield(:body_class)) %>">
+  <%= render "shared/flash" %>
+  <%= render "shared/navigation" %>
+
+  <%= yield %>
+  <%= render "shared/footer" %>
+</body>
+</html>
+
+
+

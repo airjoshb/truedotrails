@@ -1,0 +1,9 @@
+:root {
+  --brandColor: config("colors.blue");
+  --brandColorDark: config("colors.blue-dark");
+  --secondaryBrandColor: config("colors.green");
+  --secondaryBrandColorDark: config("colors.green-dark");
+  --textColor: config("colors.grey-darkest");
+  --textColorInverted: config("colors.white");
+}
+

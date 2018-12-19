@@ -1,0 +1,28 @@
+/* Base.css contains unclassed HTML elements */
+
+body {
+  @apply bg-white;
+  @apply font-sans leading-normal;
+  color: var(--textColor);
+}
+
+a {
+  @apply underline;
+  color: var(--brandColor);
+
+  &:hover {
+    @apply no-underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6:not(:last-child) {
+  @apply mb-4;
+  @apply text-base;
+  @apply text-black;
+}
+
+p {
+  @apply mb-4;
+  @apply leading-normal;
+}
+

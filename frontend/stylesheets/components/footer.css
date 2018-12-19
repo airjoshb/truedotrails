@@ -1,0 +1,30 @@
+.footer-wrapper {
+  @apply .bg-black;
+  @apply mt-16 py-8 px-4;
+}
+
+.footer {
+  @apply flex flex-col items-center;
+
+  @screen sm {
+    @apply flex-row justify-between
+  }
+}
+
+.footer__item {
+  @apply inline-block;
+  @apply my-4;
+}
+
+.footer__item:not(:last-child) {
+  @apply mr-4;
+}
+
+.footer__link {
+  @apply text-grey no-underline;
+
+  &:hover {
+    @apply underline;
+  }
+}
+

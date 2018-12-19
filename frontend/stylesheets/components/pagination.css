@@ -1,0 +1,25 @@
+.pagination {
+}
+
+.pagination-item {
+  @apply inline-block mr-2 p-2;
+  @apply leading-none text-grey-dark no-underline;
+  @apply border border-2 border-grey-light;
+  @apply rounded-full;
+
+  &:hover {
+    @apply border-grey;
+  }
+}
+
+.pagination-item--active {
+  @apply font-bold text-blue-lightest;
+  @apply bg-blue;
+  @apply border-blue;
+  @apply cursor-default;
+
+  &:hover {
+    @apply border-blue;
+  }
+}
+

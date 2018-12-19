@@ -1,0 +1,42 @@
+.modal-wrapper {
+  @apply fixed pin;
+  @apply w-full h-full;
+  @apply flex flex-col items-center justify-center;
+  @apply bg-grey-darkest;
+  @apply z-10;
+  animation-name: fadeIn;
+  animation-fill-mode: both;
+  animation-duration: .2s;
+}
+
+.modal {
+  @apply relative w-full max-w-md;
+  @apply bg-white p-4 rounded shadow-lg;
+  @apply border-t-4;
+  border-color: var(--brandColor);
+  animation-name: slideUpSm;
+  animation-fill-mode: both;
+  animation-duration: .5s;
+}
+
+.modal__close {
+  @apply absolute pin-t pin-r;
+  @apply inline-block w-6 h-6;
+  @apply text-grey-darkest;
+  @apply bg-white;
+  @apply fill-current;
+
+  &:hover {
+    @apply text-grey-darker;
+  }
+}
+
+.modal__header {
+  @apply mb-0 pr-4;
+  @apply text-xl;
+}
+
+.modal__content {
+  @apply mb-4;
+}
+

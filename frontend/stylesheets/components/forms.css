@@ -1,0 +1,43 @@
+.field {
+  @apply w-full;
+  @apply mb-6;
+}
+
+.fields-inline {
+  @apply flex;
+}
+
+.field__helper {
+  @apply mb-2;
+  @apply text-sm leading-none roman text-grey-dark;
+}
+
+.buttons {
+  @apply flex items-center;
+}
+
+label {
+  @apply inline-block mb-2;
+  @apply font-medium text-grey-darker;
+}
+
+.input {
+  @apply w-full px-4 py-2;
+  @apply leading-normal;
+  @apply bg-grey-lighter border-2 border-grey-lighter;
+  @apply rounded;
+  @appply appearance-none;
+
+  &:hover,
+  &:focus {
+    border-color: var(--brandColor);
+  }
+}
+
+.checkbox {
+  @apply ml-2;
+  @apply lowercase;
+  @apply cursor-pointer;
+}
+
+

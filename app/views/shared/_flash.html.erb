@@ -1,0 +1,8 @@
+<% if flash.any? %>
+  <%= content_tag :ul, nil, class: "flash-wrapper animate flashAnimation" do %>
+    <% flash.each do |type, msg| %>
+      <li class="flash"><%= msg %></li>
+    <% end %>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,6 @@
+plugins:
+  postcss-import: {}
+  postcss-preset-env: {}
+
+  tailwindcss: './frontend/stylesheets/tailwind.js'
+  postcss-nested: {}

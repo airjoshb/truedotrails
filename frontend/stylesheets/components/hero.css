@@ -1,0 +1,33 @@
+.hero {
+  @apply flex justify-center;
+  @apply py-8 px-4;
+  @apply bg-black;
+
+  @screen sm {
+    @apply py-32;
+  }
+}
+
+.hero__content {
+  @apply text-grey-darkest;
+}
+
+.hero__heading {
+  @apply text-3xl;
+  @apply font-black;
+  @apply text-grey-lightest;
+
+  @screen sm {
+    font-size: 4rem; /* Tailwind does not provide higher value than `text-5xl` */
+  }
+}
+
+.hero__subheading {
+  @apply mb-8;
+  @apply text-xl font-normal text-blue-lighter;
+
+  @screen sm {
+    @apply text-2xl;
+  }
+}
+

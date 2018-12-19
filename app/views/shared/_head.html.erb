@@ -1,0 +1,11 @@
+<title><%= content_for?(:page_title)? yield(:page_title) : "#{Rails.configuration.application_name}. Flying start for Rails makers." %></title>
+<meta name="description" content="<%= content_for?(:page_description)? yield(:page_description) : "Sjabloon is a modern Ruby on Rails template using Webpack, Tailwind and Stimulus. Get a beatiful and functional starting for your new Rails app." %>" />
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<%= render "shared/social_media_meta_tags" %>
+
+<%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+<%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+

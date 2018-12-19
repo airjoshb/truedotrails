@@ -1,0 +1,27 @@
+.comments {
+  @apply p-2;
+  @apply border-2 border-grey-lighter;
+}
+
+.comment {
+  @apply p-4;
+  @apply border-b-2 border-grey-light;
+}
+
+.comment__body {
+}
+
+.comment__avatar {
+  @apply mr-2;
+  @apply inline-block w-8 h-8 rounded-full;
+}
+
+.comment__author {
+  @apply flex items-center;
+}
+
+.comment__author-name {
+  @apply mb-0;
+  @apply text-sm text-grey-dark;
+}
+

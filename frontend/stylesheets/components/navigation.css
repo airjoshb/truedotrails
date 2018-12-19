@@ -1,0 +1,108 @@
+.nav {
+  @apply flex justify-between items-center;
+  @apply p-4;
+  @apply bg-white;
+  @apply shadow;
+}
+
+.nav__logo {
+  @apply text-xl text-grey-darkest font-extrabold tracking-wide no-underline;
+}
+
+.nav__items {
+  @apply flex flex-col;
+
+  @media (max-width: config("screens.sm")) {
+    @apply fixed pin-t pin-l;
+    @apply w-full h-full;
+    @apply pt-12;
+    background-color: var(--textColor);
+    opacity: 0;
+    z-index: 3;
+    transform: translateX(-100vw);
+    transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+  }
+
+  @screen sm {
+    @apply .flex-row .items-center;
+  }
+}
+
+.nav__items--visible {
+  @apply w-full h-full;
+  @apply .py-16 .px-8;
+  @apply opacity-100;
+  transform: translateX(0);
+  transition: transform 0.2s ease-in, opacity 0.3s ease-in;
+}
+
+.nav__item {
+  @apply mb-8;
+
+  @screen sm {
+    @apply mb-0;
+  }
+}
+
+.nav__item:not(:last-child) {
+  @apply mr-4;
+}
+
+.nav__link {
+  @apply text-white no-underline;
+
+  &:hover {
+    @apply text-grey-dark;
+  }
+
+  @screen sm {
+    @apply text-black;
+  }
+}
+
+.navigation__toggle {
+  position: relative;
+  width: auto;
+  z-index: 3;
+  transition: transform 0.2s ease-in;
+  @apply .cursor-pointer;
+
+  &:hover {
+    opacity: .7;
+  }
+
+  @screen sm {
+    display: none;
+  }
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12px; left: -24px;
+    width: 16px; height: 2px;
+    background-color: currentColor;
+  }
+
+  &:before {
+    transform: translateY(-2px);
+  }
+
+  &:after {
+    transform: translateY(2px);
+  }
+}
+
+.nav__toggle--toggled {
+  @apply text-white;
+  transition: transform 0.2s ease-in;
+
+  &:before {
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    transform: rotate(45deg);
+  }
+}
+

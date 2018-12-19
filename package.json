@@ -1,0 +1,15 @@
+{
+  "name": "true-dot-ink",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "postcss-nested": "^4.1.1",
+    "postcss-preset-env": "^6.5.0",
+    "rails-ujs": "^5.2.2",
+    "tailwindcss": "^0.7.3",
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

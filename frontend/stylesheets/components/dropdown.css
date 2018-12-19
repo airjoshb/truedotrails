@@ -1,0 +1,53 @@
+.dropdown {
+  @apply relative inline-block px-4 py-2;
+  @apply text-base leading-none no-underline text-grey-darkest;
+  @apply rounded;
+
+  &:hover {
+    @apply text-grey-darker;
+  }
+
+  @screen lg {
+    @apply mt-0;
+  }
+}
+
+.dropdown__toggle {
+  @apply relative flex items-center pr-5;
+}
+
+.dropdown__icon {
+  @apply absolute pin-t pin-r pin-b h-4 w-4;
+  @apply fill-current;
+  transition: transform .2s ease-in-out;
+}
+
+.dropdown__icon--toggled {
+  transform: rotate(-180deg);
+  transition: transform .2s ease-in-out;
+}
+
+.dropdown__menu {
+  @apply absolute pin-r mt-2;
+  animation-name: slideUpSm;
+  animation-fill-mode: both;
+  animation-duration: .5s;
+}
+
+.dropdown__items {
+  @apply bg-white shadow-lg;
+  @apply overflow-hidden;
+  @apply rounded
+}
+
+.dropdown__item {
+  @apply block px-6 py-4;
+  @apply text-grey-darkest no-underline;
+  @apply bg-white;
+  @apply whitespace-no-wrap;
+
+  &:hover {
+    @apply bg-grey-lightest;
+  }
+}
+
