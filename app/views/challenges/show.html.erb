@@ -1,0 +1,48 @@
+<section class="font-sans w-full flex flex-col bg-black relative min-h-90 leading-tight items-center">
+  <div class="absolute pin overflow-hidden opacity-50">
+    <div id="bgImage" class="absolute pin" style="background:url(<%= url_for(@challenge.content.attachment.variant(resize: "1400x1400").processed) %>)no-repeat;"></div>
+  </div>
+  <div class="container relative text-justify">
+    <div class="px-4 py-8 max-w-lg mx-auto">
+      <h1 class="text-3xl lg:text-5xl text-white font-thin"><%= @challenge.title %></h1>
+      <label for="tagline" class="uppercase text-white text-xl font-hairline"><%= @challenge.content.lede %></label>
+      <div class= "text-white mx-auto max-w-lg mt-4 font-normal leading-normal text-justify"><%= markdown(@challenge.content.body) %></div>
+    </div>
+  <div class="max-w-lg mx-auto">
+    <h3 class="text-2xl lg:text-3xl text-white font-thin">Challenge Steps</h3>
+  </div>
+  <div class="container max-w-xl m-auto flex flex-wrap flex-col md:flex-row items-center text-justify justify-start py-4">
+    <% for step in @challenge.challenge_steps %>
+      <div class="w-full lg:w-1/2 p-3" data-controller="modal"  data-action="keydown@window->modal#closeWithKeyboard">
+        <div class="flex flex-col lg:flex-row rounded overflow-hidden h-auto lg:h-64 border shadow-lg hover:shadow" data-action="click->modal#open" role="button">
+          <div class="lg:w-48 flex-none overflow-hidden">
+            <%= image_tag step.attachment.variant(resize: "400x400"), class: "h-full w-auto flex-none challenge-card" %>
+          </div>
+          <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-start leading-normal">              
+            <p class="text-sm text-grey-dark">
+              <svg class="fill-current text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+              </svg>
+              Locked
+            </p>
+            <div class="text-black font-bold text-xl mb-2"><%= step.title %></div>
+            <p class="text-grey-darker text-base"><%= step.content.lede unless step.content.blank? %></p>
+          </div>
+        </div>
+        <div class="hidden" data-target="modal.container" >
+          <div data-target="modal.background" data-action="click->modal#closeBackground" class="modal-wrapper">
+            <div class="modal">
+              <label class="my-8 max-w-full m-auto text-3xl md:text-4xl lg:text-5xl font-medium"><%= step.title %></label>
+              <p class="mt-1 lg:mt-4 max-w-lg m-auto leading-loose mb-6 text-left"><%= step.content.lede %></p>
+              <p class="max-w-lg m-auto leading-loose mb-6 text-left"><%= markdown(step.content.body) %></p>
+              <span class="modal__close">
+                <svg class="fill-current text-grey hover:text-grey-darkest" role="button" data-action="click->modal#close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" data-action="click->modal#close"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>  
+</section>

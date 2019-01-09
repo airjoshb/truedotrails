@@ -1,0 +1,2 @@
+class ClamCreditController < ApplicationController
+end

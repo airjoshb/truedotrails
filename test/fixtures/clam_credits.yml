@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reason: MyString
+  transaction_id: MyString
+  amount: 1
+  balance: 1
+  user: one
+
+two:
+  reason: MyString
+  transaction_id: MyString
+  amount: 1
+  balance: 1
+  user: two

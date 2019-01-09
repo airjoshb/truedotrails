@@ -26,3 +26,13 @@ p {
   @apply leading-normal;
 }
 
+.challenge-card {
+  position: relative;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-width: inherit;
+}
+

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  approvable_type: MyString
+  approvable: one
+  approvable_type: Approvable
+  approved_at: 2018-12-21 13:39:50
+  notes: MyText
+  user: one
+  rejected_at: 2018-12-21 13:39:50
+  user_action: one
+
+two:
+  approvable_type: MyString
+  approvable: two
+  approvable_type: Approvable
+  approved_at: 2018-12-21 13:39:50
+  notes: MyText
+  user: two
+  rejected_at: 2018-12-21 13:39:50
+  user_action: two

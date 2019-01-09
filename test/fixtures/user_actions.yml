@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2018-12-21 13:37:47
+  end_date: 2018-12-21 13:37:47
+  proof: MyString
+  user: one
+  challenge_step: one
+
+two:
+  start_date: 2018-12-21 13:37:47
+  end_date: 2018-12-21 13:37:47
+  proof: MyString
+  user: two
+  challenge_step: two

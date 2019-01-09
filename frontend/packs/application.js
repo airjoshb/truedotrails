@@ -13,4 +13,3 @@ Rails.start()
 Turbolinks.start()
 
 import "../stylesheets/application.css"
-

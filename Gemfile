@@ -7,19 +7,21 @@ ruby '2.5.0'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'puma'
+
+
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5.2'
+gem 'coffee-rails', '~> 4.2'
+gem 'redcarpet'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -54,8 +56,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'foreman', '~> 0.85.0'
 gem 'devise', '~> 4.5'
+gem 'devise_invitable', '~> 1.7.0'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 gem 'name_of_person', '~> 1.0'
+gem 'administrate'
+gem 'administrate-field-active_storage'
+gem 'administrate-field-trix'
+gem 'trix-rails', require: 'trix'
+gem 'wicked'
 group :development do
   gem 'letter_opener', '~> 1.6'
 end
