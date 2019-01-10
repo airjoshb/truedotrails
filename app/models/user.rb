@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_person_name
 
   validates :name, presence: true
+  has_one_attached :avatar
   has_many :posts, dependent: :destroy
   has_many :user_actions, dependent: :destroy
   has_many :clam_credits, dependent: :destroy

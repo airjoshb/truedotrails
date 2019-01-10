@@ -2,8 +2,26 @@ module ApplicationHelper
   def body_class(body_class)
     if body_class.present?
       "#{body_class}"
+    
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
     end
-  end
+    end
+  
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    end
 
   def markdown(text)
     options = {
@@ -20,17 +38,98 @@ module ApplicationHelper
       disable_indented_code_blocks: true
     }
 
-    renderer = Redcarpet::Render::HTML.new(options)
-    markdown = Redcarpet::Markdown.new(renderer, extensions)
+    r
 
-    markdown.render(text).html_safe
-  end
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    enderer = Redcarpet::R
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    ender::HTML.new(options)
+    markdown = Redcarpet::Markdown.new(r
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    enderer, extensions)
+
+    markdown.r
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    ender(text).html_safe
+  
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    end
   
   def strip(text)
-    require 'redcarpet/render_strip'
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
-    markdown.render(text).html_safe
-  end
+    require 'redcarpet/r
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    ender_strip'
+    markdown = Redcarpet::Markdown.new(Redcarpet::R
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    ender::StripDown)
+    markdown.r
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    ender(text).html_safe
+  
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    end
 
   def svg filename, options={}
     file = File.read(Rails.root.join('app', 'assets', 'images', filename))
@@ -38,18 +137,72 @@ module ApplicationHelper
     svg = doc.at_css 'svg'
     if options[:class].present?
       svg['class'] = options[:class]
+    
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
     end
     if options[:style].present?
       svg['style'] = options[:style]
+    
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
     end
     if options[:width].present?
       svg['width'] = options[:width]
+    
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
     end
     if options[:height].present?
       svg['height'] = options[:height]
+    
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
     end
     doc.to_html.html_safe
-  end
+  
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    end
 
 
-end
+
+
+    def user_avatar(user, size = 100, class_name = "avatar")
+      if user.avatar.attached?
+        tag.span nil, class: class_name, style: "background-image: url(#{polymorphic_url user.avatar})"
+      else
+        tag.span "#{user.first_name.first}", class: class_name
+      end
+    end
+    end
