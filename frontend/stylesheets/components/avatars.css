@@ -1,0 +1,7 @@
+.avatar {
+  @apply flex items-center justify-center w-32 h-32;
+  font-size: 4em; /* want the font to relative to the size (wxh) of its parent here */
+  @apply font-black uppercase text-white;
+  @apply bg-blue bg-cover bg-center bg-no-repeat;
+  @apply rounded-full;
+}
