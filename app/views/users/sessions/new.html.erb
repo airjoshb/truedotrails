@@ -1,9 +1,10 @@
 <% content_for :page_title, "Log in. #{Rails.configuration.application_name}." %>
-<% content_for :page_description, "Log in to your #{Rails.configuration.application_name} account to get access to your Ruby on Rails template." %>
-
-<div class="mt-4 max-w-md mx-auto">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "card" }) do |f| %>
-    <h1 class="mt-2 mb-6 text-xl">Log in</h1>
+<% content_for :page_description, "Log in to True.ink " %>
+<div class="flex justify-center h-screen items-center" style="background-color: #22292f; background-image:linear-gradient(to bottom, transparent, #22292f),url('<%= asset_pack_path('images/true-bgnd.jpg') %>'); background-repeat: no-repeat;">
+  <div class="">
+    
+    <div class="flex mt-8  flex-col text-white justify-center contents-center">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "" }) do |f| %>
 
     <%= render "shared/flash", flash: resource.errors %>
 
@@ -25,11 +26,16 @@
       </div>
     <% end -%>
 
-    <div class="buttons">
-      <%= f.submit "Log in", class: "btn btn--primary" %>
+    <div class="text-center">
+      <%= f.submit "Log in", class: "border border-yellow hover:bg-grey-darkest hover:border-white text-yellow hover:text-white py-3 px-6 m-3 uppercase text-xs tracking-wide rounded-full bg-transparent" %>
     </div>
   <% end %>
 
   <%= render "users/shared/links" %>
+        
+    </div>
+  </div>
 </div>
+
+
 

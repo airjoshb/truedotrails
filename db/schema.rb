@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_023557) do
+ActiveRecord::Schema.define(version: 2019_02_15_190333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,10 @@ ActiveRecord::Schema.define(version: 2019_01_09_023557) do
     t.bigint "user_action_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["approvable_type", "approvable_id"], name: "index_approvals_on_approvable_type_and_approvable_id"
     t.index ["user_action_id"], name: "index_approvals_on_user_action_id"
+    t.index ["user_id"], name: "index_approvals_on_user_id"
   end
 
   create_table "challenge_steps", force: :cascade do |t|
@@ -55,6 +57,8 @@ ActiveRecord::Schema.define(version: 2019_01_09_023557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "seq_number"
+    t.integer "user_actions_count", default: 0
     t.index ["challenge_id"], name: "index_challenge_steps_on_challenge_id"
     t.index ["slug"], name: "index_challenge_steps_on_slug", unique: true
   end
@@ -78,6 +82,17 @@ ActiveRecord::Schema.define(version: 2019_01_09_023557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clam_credits_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_comments_on_challenge_id"
+    t.index ["user_id", "challenge_id", "created_at"], name: "index_comments_on_user_id_and_challenge_id_and_created_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -122,6 +137,8 @@ ActiveRecord::Schema.define(version: 2019_01_09_023557) do
     t.bigint "challenge_step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "note"
+    t.boolean "private"
     t.index ["challenge_step_id"], name: "index_user_actions_on_challenge_step_id"
     t.index ["user_id"], name: "index_user_actions_on_user_id"
   end
@@ -158,6 +175,8 @@ ActiveRecord::Schema.define(version: 2019_01_09_023557) do
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.integer "clam_credits_total", default: 0
+    t.string "referral_code"
+    t.integer "referrer_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
@@ -170,7 +189,10 @@ ActiveRecord::Schema.define(version: 2019_01_09_023557) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "approvals", "user_actions"
+  add_foreign_key "approvals", "users"
   add_foreign_key "clam_credits", "users"
+  add_foreign_key "comments", "challenges"
+  add_foreign_key "comments", "users"
   add_foreign_key "user_actions", "challenge_steps"
   add_foreign_key "user_actions", "users"
 end

@@ -1,0 +1,10 @@
+
+<% unless current_page?(root_path) %>
+    <% paths = session[:paths_visited] %>
+    <% path_index = paths.index(@path_name) %>
+    <% if not current_page?(dashboard_path) %>
+      <%= link_to paths[path_index - 1] do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="fill-current text-yellow w-10 h-10" aria-hidden="true"><path d="M14.19 16.005l7.869 7.868-2.129 2.129-9.996-9.997L19.937 6.002l2.127 2.129z"/></svg>
+      <% end %>
+    <% end %>
+<% end %>

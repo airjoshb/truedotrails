@@ -1,5 +1,5 @@
 :root {
-  --brandColor: config("colors.blue");
+  --brandColor: config("colors.yellow-light");
   --brandColorDark: config("colors.blue-dark");
   --secondaryBrandColor: config("colors.green");
   --secondaryBrandColorDark: config("colors.green-dark");

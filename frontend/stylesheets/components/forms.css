@@ -16,10 +16,6 @@
   @apply flex items-center;
 }
 
-label {
-  @apply inline-block mb-2;
-  @apply font-medium text-grey-darker;
-}
 
 .input {
   @apply w-full px-4 py-2;

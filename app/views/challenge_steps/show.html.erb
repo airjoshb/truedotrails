@@ -1,0 +1,14 @@
+<section class="font-sans w-full flex flex-col relative leading-tight items-center content-center" style=" background:linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100%),url(<%= url_for(@challenge_step.challenge.content.attachment.variant(resize: "1400x1400").processed) %>)no-repeat;">
+  <div class="container relative text-justify pt-20 mb-20">
+    <div class="px-4 py-8 max-w-lg mx-auto">
+      <%= image_tag @challenge_step.attachment.variant(resize: "800x800").processed %>
+      <h1 class="text-3xl lg:text-5xl text-white font-thin"><%= @challenge_step.title %></h1>
+      <label for="tagline" class="uppercase text-white text-xl font-hairline"><%= @challenge_step.content.lede %></label>
+      <div class= "text-white mx-auto max-w-lg mt-4 font-normal leading-normal text-justify"><%= sanitize @challenge_step.content.body %></div>
+    </div>
+  </div>
+  </div>  
+</section>
+<%= content_for :button do %>
+  <% render 'user_action' %>
+<% end %>

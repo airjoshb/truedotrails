@@ -1,14 +1,17 @@
 class Approval < ApplicationRecord
-  belongs_to :approvable, polymorphic: true
   belongs_to :user_action
+  belongs_to :user
+  has_one :challenge, through: :user_action
+  has_one :user, through: :user_action
 
-  scope :for,       ->(object) {where(approvable_type: object)}
   scope :current,   -> { where(approved_at: nil, rejected_at: nil) }
   scope :approved,  -> { where("approved_at IS NOT NULL") }
   scope :rejected,  -> { where("rejected_at IS NOT NULL") }
   scope :historic,  -> { where("approved_at IS NOT NULL OR rejected_at IS NOT NULL") }
   scope :latest,    -> { order("created_at DESC") }
   scope :by_user, ->(user) { where(user_id: user) }
+  scope :by_action, ->(user) { joins(:user_action).where('user_actions.user_id = ?', user)}
+  scope :by_challenge, ->(challenge) { joins(:challenge).where('challenges.id = ?', challenge.id) }
 
   def accepted?
     !self.approved_at.nil? ? true : false
@@ -25,20 +28,18 @@ class Approval < ApplicationRecord
   end
 
   # Updates the timestamp to indicate the object has been accepted
-  def accept!(user_id=nil)
+  def accept!(user_id)
     if self.approved_at.nil?
-      self.activate_approvable
       # Approvability::Notifier.confirm_approval(self).deliver # Send an email to the contributor
-      self.update_attributes(rejected_at: nil, approved_at: Time.now, user_id: user_id)
+      self.update_attributes(rejected_at: nil, approved_at: Time.now, user: user_id)
     end
     self
   end
 
   # Updates the timestamp to indicate the object has been rejected
-  def reject!(user_id=nil)
+  def reject!(user_id)
     if self.rejected_at.nil?
-      self.deactivate_approvable
-      self.update_attributes(rejected_at: Time.now, approved_at: nil, user_id: user_id)
+      self.update_attributes(rejected_at: Time.now, approved_at: nil, user: user_id)
     end
     self
   end
@@ -51,17 +52,5 @@ class Approval < ApplicationRecord
     self
   end
 
-  # Changes the status of the approvable object
-  def toggle_activity
-    self.approvable.toggle! :active
-  end
-
-  def activate_approvable
-    self.approvable.update_attributes!(active: true)
-  end
-
-  def deactivate_approvable
-    self.approvable.update_attributes!(active: false)
-  end
 
 end

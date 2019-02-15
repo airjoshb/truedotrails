@@ -17,7 +17,13 @@
 }
 
 .dropdown__icon {
-  @apply absolute pin-t pin-r pin-b h-4 w-4;
+  @apply ml-4 h-4 w-4;
+  @apply fill-current;
+  transition: transform .2s ease-in-out;
+}
+
+.dropdown__icon--left {
+  @apply absolute pin-t pin-l pin-b h-4 w-4;
   @apply fill-current;
   transition: transform .2s ease-in-out;
 }
@@ -29,6 +35,12 @@
 
 .dropdown__menu {
   @apply absolute pin-r mt-2;
+  animation-name: slideUpSm;
+  animation-fill-mode: both;
+  animation-duration: .5s;
+}
+.dropup__menu {
+  @apply absolute pin-r mt-2 mr-5 pin-b;
   animation-name: slideUpSm;
   animation-fill-mode: both;
   animation-duration: .5s;

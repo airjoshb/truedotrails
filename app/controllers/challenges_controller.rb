@@ -10,6 +10,12 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    @user_actions = current_user.user_actions.joins(:challenge).where('challenges.id = ?', @challenge.id)
+    @users_started = @challenge.challenge_steps.sum{ |unit|  unit.user_actions_count }
+    user_actions = UserAction.joins(:challenge).where('challenges.id =?', @challenge.id)
+    @users = user_actions.limit(5).joins(:user).pluck('users.id')
+    @submissions = user_actions.limit(25)
+    @comments = @challenge.comments
   end
 
   # GET /challenges/new

@@ -4,4 +4,6 @@
 // `import "./hero.jpg". You can use the following
 // path helper in your views: `asset_pack_path('images/hero.jpg')` and
 // `asset_pack_url('images/hero.jpg')` for absolute urls.
-
+import "./truelogopng.png"
+import "./arrow-white.png"
+import "./true-bgnd.jpg"

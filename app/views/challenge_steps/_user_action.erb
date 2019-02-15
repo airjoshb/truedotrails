@@ -1,0 +1,41 @@
+  <% if current_user.user_actions.where(challenge_step: @challenge_step).present? %>
+    <h3 class="py-3 px-6 m-3 uppercase text-yellow ">
+      You've already submitted proof
+    </h3>
+    <button data-action="click->modal#open" class="border border-yellow hover:bg-grey-darkest hover:border-grey-darkest text-yellow hover:text-yellow py-3 px-6 m-3 uppercase text-xs tracking-wide rounded-full ">Submit Challenge Proof</button>
+  <% else %>
+    <div data-controller="modal"  data-action="keydown@window->modal#closeWithKeyboard">
+        <button data-action="click->modal#open" class="border border-yellow hover:bg-grey-darkest hover:border-grey-darkest text-yellow hover:text-yellow py-3 px-6 m-3 uppercase text-xs tracking-wide rounded-full ">Submit Challenge Proof</button>
+    <div data-target="modal.container" class="hidden">
+        <div data-target="modal.background" data-action="click->modal#closeBackground" class="modal-wrapper">
+        <div class="modal">
+            <h3 class="modal__header">Send us the proof of your hard work</h3>
+            <p class="modal__content">You can upload images or videos directly or submit a link to your proof somewhere out on the Internet.</p>
+            <%= form_with model: current_user.user_actions.build, local: true, class: "w-full p-4" do |form| %>
+                <%= form.hidden_field :challenge_step_id, value: @challenge_step.id %>
+                <div class="field">
+                <%= label_tag :attachment, "Attach Your Challenge Proof" %>
+                <%= form.file_field :attachment, class: "input rounded-20" %>
+                </div>
+                <div class="field">
+                <%= label_tag :proof, "Or, Paste a link" %>
+                <%= form.text_field :proof, class: "input rounded-20" %>
+                </div>
+                <div class:"field">
+                <%= label_tag :note, "Anything you want to add?" %>
+                <%= form.text_area :note, class: "input rounded-20" %>
+                </div>
+                <div class:"field">
+                <%= label_tag :private, "make my submission private", class: "text-xs" %>
+                <%= form.check_box :private, class: "mr-2 leading-tight" %>
+                </div>
+                <div class="field text-center">
+                <%= form.submit "Submit", class: "border text-grey-darkest border-grey-darkest hover:bg-grey-darkest hover:text-yellow py-3 px-6 m-3 uppercase text-xs tracking-wide rounded-full" %>
+                </div>
+            <% end %>
+            <svg class="modal__close" role="button" data-action="click->modal#close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+        </div>
+        </div>
+    </div>
+    </div>
+<% end %>

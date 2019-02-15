@@ -1,0 +1,13 @@
+<div class="flex justify-center h-screen items-center" style="background-color: #22292f; background-image:linear-gradient(to bottom, transparent, #22292f),url('<%= asset_pack_path('images/true-bgnd.jpg') %>'); background-repeat: no-repeat;">
+  <div class="container hero__content">
+    <h1 class="hero__heading text-center">
+      Don't leave your friends behind
+    </h1>
+
+    <div class="flex mt-8 w-full flex-col text-white text-center">
+      <h3 class="title brandon">INVITE FRIENDS & Earn Clams</h3>
+      <p class="subtitle brandon">Share your unique link via email, Facebook or Twitter and earn clams for each friend who signs up.</p>
+      <div class=""><%= root_url %>?ref=<%= @user.referral_code %></div>      
+    </div>
+  </div>
+</div>

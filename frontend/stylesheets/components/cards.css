@@ -19,14 +19,24 @@
 }
 
 .card__image {
-  @apply flex-none h-64;
+  @apply flex-none;
   @apply bg-center bg-cover;
   @apply rounded-t;
-
+  overflow: hidden;
   @screen sm {
     @apply h-auto w-48;
     @apply rounded-l rounded-r-none;
   }
+}
+.card__image img {position: relative;
+  height: 100%;
+  width: auto;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-width: inherit;
 }
 
 .card__avatar {

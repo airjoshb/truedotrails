@@ -1,8 +1,9 @@
 .nav {
-  @apply flex justify-between items-center;
+  @apply flex justify-around items-center absolute pin-t;
   @apply p-4;
-  @apply bg-white;
-  @apply shadow;
+  @apply bg-transparent;
+  @apply w-full;
+  @apply z-20;
 }
 
 .nav__logo {

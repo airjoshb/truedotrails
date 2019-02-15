@@ -2,17 +2,17 @@
   @apply fixed pin;
   @apply w-full h-full;
   @apply flex flex-col items-center justify-center;
-  @apply bg-grey-darkest;
-  @apply z-10;
+  /* @apply bg-grey-darkest; */
+  @apply z-50;
   animation-name: fadeIn;
   animation-fill-mode: both;
   animation-duration: .2s;
+  background: rgba(0,0,0,0.7);
 }
 
 .modal {
   @apply relative w-full max-w-md;
   @apply bg-white p-4 rounded shadow-lg;
-  @apply border-t-4;
   border-color: var(--brandColor);
   animation-name: slideUpSm;
   animation-fill-mode: both;

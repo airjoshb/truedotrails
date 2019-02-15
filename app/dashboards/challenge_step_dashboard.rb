@@ -14,6 +14,7 @@ class ChallengeStepDashboard < Administrate::BaseDashboard
     user_actions: Field::HasMany,
     id: Field::Number,
     title: Field::String,
+    seq_number: Field::Select.with_options(collection: [1,2,3,4,5]),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -51,6 +52,7 @@ class ChallengeStepDashboard < Administrate::BaseDashboard
     :challenge,
     :title,
     :content,
+    :seq_number,
     :attachment,
 
   ].freeze

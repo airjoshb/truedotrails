@@ -10,6 +10,10 @@ module Admin
     #     per(10)
     # end
 
+    def create
+      User.invite!(resource_params)
+      redirect_to admin_users_path
+    end
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
     #   User.find_by!(slug: param)

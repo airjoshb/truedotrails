@@ -1,31 +1,28 @@
-<% content_for :page_title, "Create your #{Rails.configuration.application_name} account." %>
-<% content_for :page_description, "Create your #{Rails.configuration.application_name} account to get access today." %>
+<% content_for :page_title, "Sign up for early access with True.ink" %>
+<% content_for :page_description, "Get early access to True.ink" %>
 
-<div class="mt-4 max-w-md mx-auto">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "card" }) do |f| %>
-    <%= render "shared/flash", flash: resource.errors %>
-    <h1 class="mt-2 mb-6 text-xl">Create an account</h1>
+<div class="flex justify-center h-screen items-center" style="background-color: #22292f; background-image:linear-gradient(to bottom, transparent, #22292f),url('<%= asset_pack_path('images/true-bgnd.jpg') %>'); background-repeat: no-repeat;">
+  <div class="container hero__content">
+    <h1 class="hero__heading text-center">
+      Live Heroically.
+    </h1>
 
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, placeholder: "Your full name", class: "input" %>
+    <div class="flex mt-8 justify-center contents-center">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "" }) do |f| %>
+        <%= render "shared/flash", flash: resource.errors %>
+        <div class="field inline text-white">
+          <%= f.text_field :name, placeholder: "Your name", class: "input mb-4" %>
+        </div>
+
+        <div class="field inline text-white">
+          <%= f.email_field :email, placeholder: "Your email", autocomplete: "email", class: "input" %>
+        </div>
+
+        <div class="actions mt-4 text-center">
+          <%= f.submit "Start Your Journey", class: "border border-yellow hover:bg-grey-darkest hover:border-white text-yellow hover:text-white py-3 px-6 m-3 uppercase text-xs tracking-wide rounded-full bg-transparent" %>
+        </div>
+      <% end %>
     </div>
-
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, placeholder: "Your email", autocomplete: "email", class: "input" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password, placeholder: "•••••••••••••", autocomplete: "new-password", class: "input" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Create an account", class: "btn btn--primary" %>
-    </div>
-  <% end %>
-
-  <%= render "users/shared/links" %>
+  </div>
 </div>
 

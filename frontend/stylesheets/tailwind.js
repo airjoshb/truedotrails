@@ -268,6 +268,7 @@ module.exports = {
     '3xl': '1.875rem',  // 30px
     '4xl': '2.25rem',   // 36px
     '5xl': '3rem',      // 48px
+    '10xl': '6rem',     // 96px
   },
 
 
@@ -554,6 +555,7 @@ module.exports = {
     '64': '16rem',
     'full': '100%',
     'screen': '100vh',
+    'screen-nav': '80vh',
   },
 
 

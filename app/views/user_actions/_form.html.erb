@@ -1,0 +1,13 @@
+  <%= form_with(model: user_action, local: true, class: "card p-4") do |form| %>
+  <%= render "shared/flash", flash: user_action.errors %>
+
+
+  <div class="field flex justify-between items-center mb-0">
+    <%= form.submit class: "btn btn--primary" %>
+
+    <% if user_action.persisted? %>
+      <%= link_to "Destroy", user_action, method: :delete, class: "text-red-dark", data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
+<% end %>
+

@@ -4,6 +4,7 @@ body {
   @apply bg-white;
   @apply font-sans leading-normal;
   color: var(--textColor);
+  @apply bg-black;
 }
 
 a {
@@ -17,8 +18,11 @@ a {
 
 h1, h2, h3, h4, h5, h6:not(:last-child) {
   @apply mb-4;
-  @apply text-base;
-  @apply text-black;
+}
+.content-body h1, .content-body h2, .content-body h3, .content-body h4, .content-body h5, .content-body h6 {
+  @apply text-3xl; 
+  @apply text-white; 
+  @apply text-center; 
 }
 
 p {
@@ -35,4 +39,4 @@ p {
   transform: translateX(-50%);
   max-width: inherit;
 }
-
+.nav__logo img {width: 150px; height: auto}

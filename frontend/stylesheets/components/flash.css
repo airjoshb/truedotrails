@@ -46,6 +46,12 @@
   @apply bg-green;
 }
 
+.flash-modern__badge--pending {
+  @apply text-yellow-lightest;
+  @apply bg-yellow-dark;
+}
+
+
 .flash-modern__message {
   @apply flex-auto mr-2;
   @apply font-semibold text-left;

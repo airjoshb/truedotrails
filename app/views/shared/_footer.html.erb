@@ -1,14 +1,28 @@
-<footer class="footer-wrapper">
-  <div class="footer container mx-auto">
-    <div class="footer__items">
-      <%= link_to "about", about_path, class: "footer__item footer__link" %>
-      <%= link_to "contact", contact_path, class: "footer__item footer__link" %>
-    </div>
-
-    <div class="footer__items">
-      <%= link_to "terms", terms_path, class: "footer__item footer__link" %>
-      <%= link_to "privacy", privacy_path, class: "footer__item footer__link" %>
-    </div>
+<nav class="pin-b fixed h-16 flex bg-grey-dark w-full z-50">
+  <div class="nav__items w-1/3 justify-start">
   </div>
-</footer>
+  <% if user_signed_in? %>
+    <div class="w-1/3 text-center">
+      <%= yield :button %>
+    </div>
+  <% end %>
+  <div class="nav__items w-1/3 justify-end"  data-target="navigation.items">
+    <% if user_signed_in? %>
+      <div class="dropdown p-0" data-controller="dropdown">
+        <div class="dropdown__toggle text-yellow" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">
+          <%= user_avatar(current_user, 40, "avatar avatar--navigation") %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon flex-col" data-target="dropdown.icon"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+        </div>
+        <div data-target="dropdown.menu" class="dropup__menu hidden">
+          <div class="dropdown__items">
+            <%= link_to "Dashboard",  dashboard_path, class: "dropdown__item" %>
+            <%= link_to "Edit acocunt",  edit_user_registration_path, class: "dropdown__item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= link_to "log in", new_user_session_path, class: "nav__item nav__link" %>
+    <% end %>
+  </div>
 

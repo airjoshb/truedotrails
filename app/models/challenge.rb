@@ -1,6 +1,7 @@
 class Challenge < ApplicationRecord
   has_one :content, as: :contentable
   has_many :challenge_steps
+  has_many :comments, dependent: :destroy
 
   has_one_attached :attachment
 

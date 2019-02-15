@@ -10,9 +10,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    ref_code = cookies[:h_ref]
+    email = params[:user][:email]
+    @user = build_resource(sign_up_params)
+    @user.referrer = User.find_by_referral_code(ref_code) if ref_code
+    @user.save
+    if @user.save
+      cookies[:h_email] = { value: @user.email }
+      redirect_to '/refer-a-friend'
+    else
+      logger.info("Error saving user with email, #{email}")
+      redirect_to root_path, alert: 'Something went wrong!'
+    end
+
+  end
 
   # GET /resource/edit
   # def edit
@@ -51,9 +63,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    cookies[:h_email] = { value: resource.email }
+    redirect_to '/refer-a-friend'
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

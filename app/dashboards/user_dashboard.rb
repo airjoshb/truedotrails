@@ -51,8 +51,10 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :first_name,
+    :last_name,
+    :email,
     :invited_by,
-    :posts,
     :user_actions,
     :clam_credits,
   ].freeze
@@ -101,38 +103,11 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :invited_by,
-    :posts,
-    :user_actions,
-    :clam_credits,
-    :approvals,
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
-    :confirmation_token,
-    :confirmed_at,
-    :confirmation_sent_at,
     :unconfirmed_email,
-    :failed_attempts,
-    :unlock_token,
-    :locked_at,
     :first_name,
     :last_name,
     :admin,
-    :invitation_token,
-    :invitation_created_at,
-    :invitation_sent_at,
-    :invitation_accepted_at,
-    :invitation_limit,
-    :invitations_count,
-    :clam_credits_total,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
@@ -141,4 +116,9 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
+
+  # Change New button
+  def valid_action?(name, resource = resource_class)
+    %w[new].change?(name="invite") && super
+  end
 end
