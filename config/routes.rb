@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   authenticated :user do
     get '/dashboard', to: 'dashboard#show'
   end
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
   namespace :admin do
       resources :users
       resources :approvals

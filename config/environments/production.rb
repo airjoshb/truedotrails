@@ -3,7 +3,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: ENV["DOMAINNAME"] }
   # temporarily disabled live emails. Change back to `smtp` when Sendgrid has been set up
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
 
   ActionMailer::Base.smtp_settings = {
@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 
 
   # Use the lowest log level to ensure availability of diagnostic information
