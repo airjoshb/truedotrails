@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
 
+gem 'aws-sdk-s3'
 
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.1'
