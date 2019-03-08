@@ -65,9 +65,7 @@ gem 'administrate-field-active_storage'
 gem 'administrate-field-trix'
 gem 'trix-rails', require: 'trix'
 gem 'wicked'
-group :development do
-  gem 'letter_opener', '~> 1.6'
-end
+gem 'letter_opener', '~> 1.6'
 
 gem 'webpacker', '~> 3.5', '>= 3.5.5'
 gem 'premailer-rails', '~> 1.10', '>= 1.10.2'
