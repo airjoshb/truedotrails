@@ -2,7 +2,8 @@ Rails.application.configure do
   config.middleware.use Rack::Deflater
 
   config.action_mailer.default_url_options = { host: ENV["DOMAINNAME"] }
-  config.action_mailer.delivery_method = :smtp
+  # temporarily disabled live emails. Change back to `smtp` when Sendgrid has been set up
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
   ActionMailer::Base.smtp_settings = {
